@@ -1,0 +1,24 @@
+{
+  "id": "com.athom.eliza",
+  "version": "0.0.1",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "Eliza"
+  },
+  "description": {
+    "en": "Eliza is a mock Rogerian psychotherapist. Original program by Joseph Weizenbaum."
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Geurt Dijker",
+    "email": "geurt@dijker.nu"
+  }
+}
