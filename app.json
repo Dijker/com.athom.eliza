@@ -1,6 +1,6 @@
 {
   "id": "com.athom.eliza",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Dijker/com.athom.eliza/issues"
   },
-  "athomForumDiscussionId": 99999,
+  "athomForumDiscussionId": 5412,
   "description": {
     "en": "Eliza is a mock Rogerian psychotherapist. Original program by Joseph Weizenbaum."
   },
