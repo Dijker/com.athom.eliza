@@ -1,6 +1,6 @@
 {
   "id": "com.athom.eliza",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -57,22 +57,12 @@
                 "capturingGroup": true
             }
         }
-    },
-    "nl": {
-        "element": {
-            "Eliza": {
-                "type": "regex",
-                "value": "kan ik Eliza spreken?"
-            }
-        }
     }
   },
   "speechExamples": {
-      "en": ["Can I speak Eliza?"],
-      "nl": ["Kan ik Eliza spreken?"]
+      "en": ["Can I speak Eliza?"]
   },
   "permissions": [
-    "homey:manager:ledring",
     "homey:manager:speech-input",
     "homey:manager:speech-output"
   ]

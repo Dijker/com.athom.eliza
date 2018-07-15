@@ -1,6 +1,6 @@
 'use strict';
-const debug = true;
-const askTimeout = 15*1000; //90  Seconds
+const debug = false;
+const askTimeout = 90*1000; //90  Seconds
 const Homey = require('homey');
 const Eliza = require( 'eliza-as-promised');
 var eliza = new Eliza();
