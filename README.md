@@ -9,8 +9,8 @@ For a conversation example given by Joseph Weizenbaum in his article see the Eli
 
 This is an implementation based on the promised based node.js module https://github.com/natelewis/eliza-as-promised.
 
-All credits for Eliza go to Joseph Weizenbaum for Eliza,
-eliza-as-promised module by Nate Lewis.
+All credits for Eliza go to Joseph Weizenbaum (8 January 1923 – 5 March 2008),
+Credist for the eliza-as-promised module to Nate Lewis.
 Homey App by Geurt Dijker.
 
 Eliza is very discreet and doesn't memorize or log anything you say. But be aware making use of internet implies your message is traveling thru the cloud. Although all companies care about your privacy it could be your conversation is logged somewhere.
