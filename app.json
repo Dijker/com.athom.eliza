@@ -1,6 +1,6 @@
 {
   "id": "com.athom.eliza",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -9,6 +9,12 @@
   "author": {
     "name": "Geurt Dijker",
     "email": "geurt@dijker.nu"
+  },
+  "contributors": {
+    "developers": [
+      { "name": "Joseph Weizenbaum" },
+      { "name": "Nate Lewis" }
+    ]
   },
   "contributing": {
     "donate": {
@@ -34,14 +40,18 @@
   "speech": {
     "en": {
         "element": {
-            "Eliza": {
-                "type": "regex",
-                "value": "can i speak eliza?"
-            }
+          "actionWords": {
+              "type": "regex",
+              "value": "speak (with|to)|talk (with|to)"
+          },
+          "Eliza": {
+              "type": "regex",
+              "value": "eliza|elisa|Eliza|Elisa|psychotherapist|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
+          }
         },
         "group": {
             "main": {
-                "set": "Eliza",
+                "set": "(actionWords) && Eliza",
                 "ordered": false,
                 "allowDisconnect": false,
                 "capturingGroup": true

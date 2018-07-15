@@ -13,7 +13,9 @@ All credits for Eliza go to Joseph Weizenbaum for Eliza,
 eliza-as-promised module by Nate Lewis.
 Homey App by Geurt Dijker.
 
-This app is For Educational Purposes Only.
+Eliza is very discreet and doesn't memorize or log anything you say. But be aware making use of internet implies your message is traveling thru the cloud. Although all companies care about your privacy it could be your conversation is logged somewhere.
+
+This app is for Educational Purposes Only.
 
 Talk to a real person?
 You can also get help with talking about your feelings with real persons,

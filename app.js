@@ -1,5 +1,6 @@
 'use strict';
-
+const debug = true;
+const askTimeout = 15*1000; //90  Seconds
 const Homey = require('homey');
 const Eliza = require( 'eliza-as-promised');
 var eliza = new Eliza();
@@ -7,35 +8,44 @@ var speechSession = null;
 var responseU = null;
 var responseE = null;
 
+
 class ElizaApp extends Homey.App {
-	queryUser ( responseE ) {
-		responseU  = speechSession.ask( responseE , {session: speechSession, timeout: 30000})
+	async queryUser ( responseE ) {
+		responseU  = speechSession.ask( responseE , {session: speechSession, timeout: askTimeout})
 			.then (( responseU ) => {
 				if ( responseU.length > 0 ) {
-					this.log('L >> ' + responseU.length );
-					this.log('User >> ' + responseU );
+					if (debug) { this.log( 'User >> ' + responseU )}
 					responseE = eliza.getResponse(responseU)
 					// console.log('>>re ' + responseE.reply);
 						.then((responseE) => {
 							if (responseE.reply) {
-								this.log('Eliza >> ' + responseE.reply);
+								if (debug) { this.log( 'Eliza >> ' + responseE.reply)}
 								this.queryUser( responseE.reply )
 							}
 							if (responseE.final) {
-								this.log('Final Response from Eliza >> ' + responseE.final );
+								if (debug) { this.log( 'Final Response from Eliza >> ' + responseE.final )}
 								speechSession.say( responseE.final );
 								// process.exit(0);
 							}
 					})
 					.catch((err) => {
 						//reject(err);
-						this.log( '>> No Response from Eliza !!' );
+						if (debug) { this.log(  '>> No Response from Eliza !!' ) }
 					})
 			}
 		})
 		.catch((err) => {
 			// reject(err);
-			this.log( '>> Ask timed out !!' );
+			speechSession.say('Time is over now, ');
+			responseE = eliza.getResponse("bye")
+				.then((responseE) => {
+					speechSession.say( responseE.final )
+				})
+				.catch((err) => {
+					// reject(err);
+					if (debug) { this.log(  '>> End timed out !!' )}
+				})
+			if (debug) { this.log(  '>> Ask timed out !!' )}
 		})
 	};
 
@@ -44,8 +54,7 @@ class ElizaApp extends Homey.App {
 	 */
 	onInit() {
 		this.log('Eliza is running...');
-		this.log('Can I Speak Eliza?');
-		this.log('I feel  lonely.');
+		this.log('Debug:', debug );
 		Homey.ManagerSpeechInput.on('speechEval', (speech, callback) => {
 				callback(null, true);
 			});
@@ -55,14 +64,18 @@ class ElizaApp extends Homey.App {
 			// start an Eliza conversation
 			responseU =  null;
 			responseE =  eliza.getInitial();
-			this.log('New Session >> ' + responseE );
+			if (debug) { this.log('New Session >> ' + responseE )}
 			speechSession = speech;
-			this.queryUser( responseE );
-			// console.log('<<< ' + responseU );
+			speechSession.say('Hi, I m Eliza your therapist, ');
+			responseU = this.queryUser( responseE )
+				.then((responseU) => {
+					this.log('<<< then Returned' );
+				})
+				.catch((responseU) => {
+					this.log('<<< catch Returned' );
+				})
 		})
 	}
 }
 
 module.exports = ElizaApp;
-// Can I Speak Eliza?
-// I am lonely
