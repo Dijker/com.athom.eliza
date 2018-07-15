@@ -6,19 +6,64 @@
   "name": {
     "en": "Eliza"
   },
+  "author": {
+    "name": "Geurt Dijker",
+    "email": "geurt@dijker.nu"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "Dijker"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/Dijker/com.athom.eliza/issues"
+  },
+  "athomForumDiscussionId": 99999,
   "description": {
     "en": "Eliza is a mock Rogerian psychotherapist. Original program by Joseph Weizenbaum."
   },
   "category": [
     "tools"
   ],
-  "permissions": [],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
-  "author": {
-    "name": "Geurt Dijker",
-    "email": "geurt@dijker.nu"
-  }
+  "speech": {
+    "en": {
+        "element": {
+            "Eliza": {
+                "type": "regex",
+                "value": "can i speak eliza?"
+            }
+        },
+        "group": {
+            "main": {
+                "set": "Eliza",
+                "ordered": false,
+                "allowDisconnect": false,
+                "capturingGroup": true
+            }
+        }
+    },
+    "nl": {
+        "element": {
+            "Eliza": {
+                "type": "regex",
+                "value": "kan ik Eliza spreken?"
+            }
+        }
+    }
+  },
+  "speechExamples": {
+      "en": ["Can I speak Eliza?"],
+      "nl": ["Kan ik Eliza spreken?"]
+  },
+  "permissions": [
+    "homey:manager:ledring",
+    "homey:manager:speech-input",
+    "homey:manager:speech-output"
+  ]
 }
