@@ -12,13 +12,15 @@ All credits for Eliza go to Joseph Weizenbaum (8 January 1923 – 5 March 2008),
 Credits for the eliza-as-promised module to Nate Lewis.
 Homey App by Geurt Dijker.
 
+## The app
+The Eliza App has no devices or flowcards, it just facilitates a chat when you ask for it (call her Eliza, doctor, psychotherapist, etc). When she talks keep answering within 90 seconds, else she will end your session in favour of other patients.
+
 ## Privacy
 Eliza is very discreet and doesn't memorize or log anything you say. But be aware making use of internet implies your message is traveling thru the cloud. Although all companies care about your privacy it could be your conversation is logged somewhere.
 
 The use of Eliza is probably not covered by your health care insurance but if you insist we can speak and drink something on one of the Homey by Athom Community events.
 
 This app is for Educational Purposes Only.
-
 
 ## Talk to a real person?
 You can also get help with talking about your feelings with real persons,
