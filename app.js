@@ -67,11 +67,11 @@ class ElizaApp extends Homey.App {
 				callback(null, true);
 			});
 		Homey.ManagerSpeechInput.on('speechMatch', (speech, onSpeechEvalData) => {
-			this.log('Eliza speechMatch ...', speech);
 			if (speech.matches && speech.matches.main && speech.matches.main.debug) {
 				debug = true;
 				this.log('!! Set debug is True!')
 			}
+			if (debug) { this.log('Eliza speechMatch ...', speech) }
 			// start an Eliza conversation
 			responseU =  null;
 			responseE =  eliza.getInitial(debug);
@@ -83,17 +83,16 @@ class ElizaApp extends Homey.App {
 			if (speech.matches && speech.matches.main && speech.matches.main.Eliza) {
 				ElizaSession.speech.say('Hi, I am Eliza,, your therapist, ')
 				.then(() => {
-					this.log('<<< then matches main Eliza' );
+					if (debug) { this.log('<<< then matches main Eliza' ) }
 					responseU = this.queryUser( ElizaSession, responseE )
-					.then((responseU) => {
-						this.log('<<< then Returned' );
-					}).catch(() => {})
+					.then((responseU) => {})
+					.catch(() => {})
 				}).catch(() => {})
 			} else {
-				this.log('<<< else matches main mood ', speech.transcript  );
+				if (debug) { this.log('<<< else matches main mood ', speech.transcript  )};
 				responseE = eliza.getResponse( speech.transcript )
 					.then((responseE) => {
-						this.log('<<< 1st getResponse Returned' , responseE.reply );
+						if (debug) { this.log('<<< 1st getResponse Returned' , responseE.reply )};
 						responseU = this.queryUser( ElizaSession, responseE.reply )
 							.then(() => { })
 							.catch(() => { })
