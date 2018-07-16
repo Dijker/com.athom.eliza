@@ -40,22 +40,37 @@
   "speech": {
     "en": {
         "element": {
+          "debug": {
+              "type": "regex",
+              "value": "debug is true"
+          },
           "actionWords": {
               "type": "regex",
               "value": "speak (with|to)|talk (with|to)"
           },
           "Eliza": {
               "type": "regex",
-              "value": "eliza|elisa|Eliza|Elisa|psychotherapist|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
+              "value": "eliza|elisa|Eliza|Elisa|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
+          },
+          "mood": {
+              "type": "regex",
+              "value": "feel|think|believe|wish|sad|happy|unhappy|depressed|sick|worry|angry"
           }
         },
         "group": {
             "main": {
-                "set": "(actionWords) && Eliza",
+                "set": "(actionWords) && Eliza && (debug)",
                 "ordered": false,
-                "allowDisconnect": false,
+                "allowDisconnect": true,
+                "capturingGroup": true
+            },
+            "fuzzy": {
+                "set": "mood",
+                "ordered": false,
+                "allowDisconnect": true,
                 "capturingGroup": true
             }
+
         }
     }
   },
