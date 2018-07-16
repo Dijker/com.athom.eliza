@@ -74,7 +74,7 @@ class ElizaApp extends Homey.App {
 			}
 			// start an Eliza conversation
 			responseU =  null;
-			responseE =  eliza.getInitial();
+			responseE =  eliza.getInitial(debug);
 			if (debug) { this.log('New Session >> ' + responseE )};
 			var ElizaSession = {};
 			ElizaSession.speech = speech;

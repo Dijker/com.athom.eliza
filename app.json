@@ -1,6 +1,6 @@
 {
   "id": "edu.mit.eliza",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -54,7 +54,7 @@
           },
           "mood": {
               "type": "regex",
-              "value": "feel|think|believe|wish|sad|happy|unhappy|depressed|sick|worry|angry"
+              "value": "feel|think|believe|wish|cannot|can't|desire|want|need|unhappy|depressed|sick|worry|angry|happy|sad|everyone|everybody|nobody|noone|elated|glad|better|worries|unhappy|computers|machines|sad|negative|problem|apologise|forget|dream|dreamed"
           }
         },
         "group": {
