@@ -12,8 +12,10 @@
   },
   "contributors": {
     "developers": [
-      { "name": "Joseph Weizenbaum" },
-      { "name": "Nate Lewis" }
+      { "name": "Joseph Weizenbaum",
+        "email": "noreply1@nonexistentdomain.tld" },
+      { "name": "Nate Lewis",
+        "email": "noreply2@nonexistentdomain.tld" }
     ]
   },
   "contributing": {
