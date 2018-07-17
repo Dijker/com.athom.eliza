@@ -52,7 +52,7 @@
           },
           "Eliza": {
               "type": "regex",
-              "value": "eliza|elisa|Eliza|Elisa|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
+              "value": "eliza|elisa|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
           },
           "mood": {
               "type": "regex",
