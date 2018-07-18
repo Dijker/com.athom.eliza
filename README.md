@@ -2,11 +2,14 @@
 Eliza is a mock Rogerian psychotherapist.
 
 ELIZA is a natural language conversation program described by Joseph Weizenbaum in January 1966. It features the dialog between a human user and a computer program representing a mock Rogerian psychotherapist.
-The original program was implemented on the IBM 7094 of the Project MAC time-sharing system at MIT and was written in MAD-SLIP. For more information visit https://en.wikipedia.org/wiki/ELIZA
+The original program was implemented on the IBM 7094 of the Project MAC time-sharing system at MIT and was written in MAD-SLIP. For more information visit:
+( https://en.wikipedia.org/wiki/ELIZA )
 
-For a conversation example given by Joseph Weizenbaum in his article see the Eliza Test page. (http://www.masswerk.at/elizabot/eliza_test.html)
+For a conversation example given by Joseph Weizenbaum in his article see the Eliza Test page. 
+( http://www.masswerk.at/elizabot/eliza_test.html )
 
-This is an implementation based on the promised based node.js module https://github.com/natelewis/eliza-as-promised 
+This is an implementation based on the promised based node.js module:
+( https://github.com/natelewis/eliza-as-promised ) 
 
 All credits for Eliza go to Joseph Weizenbaum (8 January 1923 – 5 March 2008),
 Credits for the eliza-as-promised module to Nate Lewis.

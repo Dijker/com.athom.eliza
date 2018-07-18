@@ -1,6 +1,6 @@
 {
   "id": "edu.mit.eliza",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -52,7 +52,7 @@
           },
           "Eliza": {
               "type": "regex",
-              "value": "eliza|elisa|Eliza|Elisa|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
+              "value": "eliza|elisa|clinician|doctor|psychoanalyst|psychologist|psychotherapist|therapist"
           },
           "mood": {
               "type": "regex",
