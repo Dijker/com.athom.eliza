@@ -13,7 +13,18 @@ Credits for the eliza-as-promised module to Nate Lewis.
 Homey App by Geurt Dijker.
 
 ## The app
-The Eliza App has no devices or flowcards, it just facilitates a chat when you ask for it (call her Eliza, doctor, psychotherapist, etc). When she talks keep answering within 90 seconds, else she will end your session in favour of other patients.
+The Eliza App has no devices or flowcards, it just facilitates a chat when you ask for it (call her Eliza, doctor, psychotherapist, etc). When she talks keep answering within 75 seconds (with 3 retry's if you wait to long), else she will end your session in favour of other patients.
+
+## How to use the App
+Ask Home to talk to Eliza:
+
+[OK Homey] Can I talk to Eliza
+
+start chatting to Eliza 
+
+When you are finished for your sessinon just say: Bye 
+
+The illusion of intelligence of Eliza works best if you limit your conversation to talking about yourself and your life.
 
 ## Privacy
 Eliza is very discreet and doesn't memorize or log anything you say. But be aware making use of internet implies your message is traveling thru the cloud. Although all companies care about your privacy it could be your conversation is logged somewhere.
