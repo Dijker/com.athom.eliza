@@ -2,12 +2,23 @@
 var debug = false;
 const askTimeout = 75*1000; //90  Seconds
 const Homey = require('homey');
-const Eliza = require( 'eliza-as-promised');
-var eliza = new Eliza();
+//const Eliza = require( 'eliza-as-promised');
+const ElizaBot = require( 'eliza-eb');
+//var eliza = new Eliza();
+var eliza = new ElizaBot();
 // var speechSession = null;
 var responseU = null;
 var responseE = null;
 
+/*
+new ElizaBot()
+ElizaBot.prototype.transform( <inputstring> )
+ElizaBot.prototype.getResponse("initial")
+ElizaBot.prototype.getResponse("final")
+ElizaBot.prototype.reset()
+
+var initial = eliza.getResponse("initial");
+*/
 
 class ElizaApp extends Homey.App {
 	async queryUser ( ElizaSession, responseE ) {
@@ -15,7 +26,8 @@ class ElizaApp extends Homey.App {
 			.then(( responseU ) => {
 				if ( responseU.length > 0 ) {
 					if (debug) { this.log( 'User >> ' + responseU )}
-					responseE = eliza.getResponse(responseU)
+//					responseE = eliza.getResponse(responseU)
+					responseE.reply = eliza.transform(responseU)
 					// console.log('>>re ' + responseE.reply);
 						.then((responseE) => {
 							if (responseE.reply) {
@@ -23,7 +35,9 @@ class ElizaApp extends Homey.App {
 								if (ElizaSession.missed > 0) { ElizaSession.missed -=1;}
 								this.queryUser( ElizaSession, responseE.reply )
 							}
-							if (responseE.final) {
+	//						if (responseE.final) {
+							if (eliza.quit) {
+								responseE.final = getResponse("final") // ** eb
 								ElizaSession.final = true;
 								if (debug) { this.log( 'Final Response from Eliza >> ' + responseE.final )}
 									ElizaSession.speech.say( responseE.final );
@@ -40,7 +54,8 @@ class ElizaApp extends Homey.App {
 					ElizaSession.final = true;
 					if (debug) { this.log(  '>> Ask timed out !! Missed: ' + ElizaSession.missed  )}
 					ElizaSession.speech.say('Time is over now, ');
-					responseE = eliza.getResponse("bye")
+//					responseE = eliza.getResponse("bye")
+					responseE.final = eliza.getResponse("final")
 					.then((responseE) => {
 						ElizaSession.speech.say( responseE.final )
 					})
@@ -48,7 +63,8 @@ class ElizaApp extends Homey.App {
 						if (debug) { this.log(  '>> End timed out !!' )}
 					})
 				} else {
-					responseE = eliza.getResponse(" ")
+//					responseE = eliza.getResponse(" ")
+					responseE = eliza.transform(" ")
 					.then((responseE) => {
 						this.queryUser( ElizaSession, responseE.reply )
 					}).catch((responseE) => {})
@@ -74,7 +90,8 @@ class ElizaApp extends Homey.App {
 			if (debug) { this.log('Eliza speechMatch ...', speech) }
 			// start an Eliza conversation
 			responseU =  null;
-			responseE =  eliza.getInitial(debug);
+//			responseE =  eliza.getInitial(debug);
+			responseE =  eliza.getResponse("initial");
 			if (debug) { this.log('New Session >> ' + responseE )};
 			var ElizaSession = {};
 			ElizaSession.speech = speech;
@@ -90,7 +107,8 @@ class ElizaApp extends Homey.App {
 				}).catch(() => {})
 			} else {
 				if (debug) { this.log('<<< else matches main mood ', speech.transcript  )};
-				responseE = eliza.getResponse( speech.transcript )
+//				responseE = eliza.getResponse( speech.transcript )
+				responseE = eliza.transform( speech.transcript )
 					.then((responseE) => {
 						if (debug) { this.log('<<< 1st getResponse Returned' , responseE.reply )};
 						responseU = this.queryUser( ElizaSession, responseE.reply )
